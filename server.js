@@ -1,4 +1,5 @@
 require("rootpath")();
+require("dotenv").config();
 const express = require("express");
 const app = express();
 const cors = require("cors");
@@ -9,10 +10,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 
-// api routes
 app.get("/", (req, res) => {
-  res.json("Hello World!");
+  res.json({ message: "welcome to testing api backend" });
 });
+
+// api routes
+app.use("/v1/admin/auth", require("./routes/admin-auth"));
 
 // global error handler
 app.use(errorHandler);

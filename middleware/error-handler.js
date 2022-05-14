@@ -1,4 +1,4 @@
-function errorHandler(err, req, res, next) {
+const errorHandler = (err, req, res, next) => {
   switch (true) {
     case typeof err === "string":
       // custom application error
@@ -11,6 +11,6 @@ function errorHandler(err, req, res, next) {
     default:
       return res.status(500).json({ message: err.message });
   }
-}
+};
 
 module.exports = errorHandler;
