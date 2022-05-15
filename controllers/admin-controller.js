@@ -14,8 +14,18 @@ const AdminController = {
   },
 
   getProfile(req, res, next) {
-    const result = { profile: req.user };
+    const { password, ...user } = req.user;
+    const result = { profile: user };
     res.json(successHandler(result, "Success"));
+  },
+
+  logout(req, res, next) {
+    adminService
+      .logout(req.headers["authorization"])
+      .then(() => {
+        res.json(successHandler(null, "Logout Success"));
+      })
+      .catch(next);
   },
 };
 

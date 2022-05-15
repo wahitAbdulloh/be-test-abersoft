@@ -8,4 +8,6 @@ router.post("/login", adminSchema.loginSchema, adminController.login);
 
 router.get("/profile", authorize(), adminController.getProfile);
 
+router.post("/logout", authorize(), adminController.logout);
+
 module.exports = router;
