@@ -1,18 +1,6 @@
 const jwt = require("jsonwebtoken");
 
-// this is just for example
-const adminData = [
-  {
-    id: 1,
-    email: "cong.fandi@abersoft.se",
-    password: "thisismypassword",
-  },
-  {
-    id: 2,
-    email: "wahidAbdullah@outlook.com",
-    password: "thisismypassword",
-  },
-];
+const adminData = require("services/admin-data");
 
 const AdminService = {
   async login({ email, password }) {

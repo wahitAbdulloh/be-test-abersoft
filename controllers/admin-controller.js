@@ -12,6 +12,11 @@ const AdminController = {
       })
       .catch(next);
   },
+
+  getProfile(req, res, next) {
+    const result = { profile: req.user };
+    res.json(successHandler(result, "Success"));
+  },
 };
 
 module.exports = AdminController;
