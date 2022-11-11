@@ -18,6 +18,11 @@ const AdminService = {
   async logout(authorization) {
     tokenHistories.push(authorization);
   },
+
+  async changePass({ email, newPassword }) {
+    console.log(email);
+    console.log(newPassword);
+  },
 };
 
 module.exports = AdminService;

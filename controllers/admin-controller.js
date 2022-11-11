@@ -27,6 +27,15 @@ const AdminController = {
       })
       .catch(next);
   },
+
+  changePass(req, res, next) {
+    adminService
+      .changePass(req.body)
+      .then(() => {
+        res.json(successHandler(null, "Success change password"));
+      })
+      .catch(next);
+  },
 };
 
 module.exports = AdminController;

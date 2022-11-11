@@ -10,6 +10,14 @@ const AdminSchema = {
 
     validateRequest(req, next, schema);
   },
+
+  changePassSchema(req, res, next) {
+    const schema = Joi.object({
+      email: Joi.string().email(),
+      newPassword: Joi.string().required(),
+      retypeNewPassword: Joi.ref("newPassword"),
+    });
+  },
 };
 
 module.exports = AdminSchema;

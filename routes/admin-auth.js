@@ -10,4 +10,11 @@ router.get("/profile", authorize(), adminController.getProfile);
 
 router.post("/logout", authorize(), adminController.logout);
 
+router.post(
+  "/change-password",
+  authorize(),
+  adminSchema.changePassSchema,
+  adminController.changePass
+);
+
 module.exports = router;
